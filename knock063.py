@@ -31,10 +31,13 @@ if __name__ == '__main__':
 	for file_name, num in zip(files, range(0, fileNum)):
 		for line in open(file_name):
 			df_dict[line.strip().split("\t")[0]].append(num)
+	for noun in df_dict.keys():
+		df_dict[noun] = len(set(df_dict[noun]))
+
 	#calc idf
 	for noun in tf_dict.keys():
-		idf_dict[noun] = math.log(float(fileNum)/len(set(df_dict[noun])) ,2)
+		idf_dict[noun] = math.log(float(fileNum)/df_dict[noun] ,2)
 
 	# output
 	for noun in tf_dict.keys():
-		print noun, "\t", tf_dict[noun]*idf_dict[noun], "\t", tf_dict[noun], "\t", idf_dict[noun]
+		print noun, "\t", tf_dict[noun]*idf_dict[noun], "\t", tf_dict[noun], "\t", df_dict[noun]
