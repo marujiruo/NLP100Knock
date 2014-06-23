@@ -21,17 +21,16 @@ if __name__ == '__main__':
     file_linenum = sum(1 for line in open(input_file))
 
     product_dict = {}
-    print "create list"
     for line1, index1 in zip(open(input_file), range(file_linenum)):
         split_line1 = line1.strip().split("\t")
         for line2, index2 in zip(open(input_file), range(file_linenum)):
             if index2 <= index1:
                 continue
             split_line2 = line2.strip().split("\t")
-            product_dict[split_line1[0]+"・"+split_line2[0]+"="] = getDotProduct(split_line1[1:], split_line2[1:])
+            product_dict[split_line1[0]+"\t"+split_line2[0]] = getDotProduct(split_line1[1:], split_line2[1:])
 
     # output
     for text, product in sorted(product_dict.items(), key=lambda x:-x[1]):
         if product < 0.6:
             break
-        print text, "\t", product
+        print str(product)+"\t"+text
