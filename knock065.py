@@ -27,11 +27,11 @@ if __name__ == '__main__':
 			# 係り先
 			if line_split[0] in tfidf_list:
 				if not line_split[1] == "None":
-					print line_split[0], "\t->", line_split[1] 
+					print line_split[0]+"\t->"+line_split[1] 
 				# 係り元
 				for src in line_split[2:]:
 					if not src == "None":
-						print line_split[0], "\t<-", src
+						print line_split[0]+"\t<-"+src
 
 
 
