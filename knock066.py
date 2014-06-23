@@ -32,5 +32,5 @@ if __name__ == '__main__':
 	for np, context_dict in context_vector.items():
 		print np,
 		for context, value in context_dict.items():
-			print "\t"+context+":"+str(value),
+			sys.stdout.write("\t"+context+":"+str(value))
 		print ""
