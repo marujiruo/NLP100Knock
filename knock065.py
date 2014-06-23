@@ -24,11 +24,15 @@ if __name__ == '__main__':
 	for file_name in files:
 		for line in open(file_name):
 			line_split = line.strip().split("\t")
+			# 係り先
 			if line_split[0] in tfidf_list:
-				print line_split[0], "\t->", line_split[1] 
+				if not line_split[1] == "None":
+					print line_split[0], "\t->", line_split[1] 
+				# 係り元
 				if len(line_split)>2:
 					for src in line_split[2:]:
-						print line_split[0], "\t<-", src
+						if not src == "None":
+							print line_split[0], "\t<-", src
 
 
 
