@@ -29,10 +29,9 @@ if __name__ == '__main__':
 				if not line_split[1] == "None":
 					print line_split[0], "\t->", line_split[1] 
 				# 係り元
-				if len(line_split)>2:
-					for src in line_split[2:]:
-						if not src == "None":
-							print line_split[0], "\t<-", src
+				for src in line_split[2:]:
+					if not src == "None":
+						print line_split[0], "\t<-", src
 
 
 
