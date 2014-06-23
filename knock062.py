@@ -28,14 +28,16 @@ if __name__ == '__main__':
 				if chunk.getNP() is not None:
 					# 名詞句
 					np = "".join(morph.base for morph in chunk.getNP())
-					# 係り先の周辺単語(dstが-1だったときの処理がされてない。まずい)
-					if sent[chunk.dst].morphs[sent[chunk.dst].head].isIndipendent():
+					# 係り先の周辺単語
+					if chunk.dst == -1:
+						dst = "None"
+					elif sent[chunk.dst].morphs[sent[chunk.dst].head].isIndipendent():
 						dst = sent[chunk.dst].morphs[sent[chunk.dst].head].base
 					else:
-						continue
+						dst = "None"
 					# 係り元の周辺単語
 					srcs = [sent[src].morphs[sent[src].head].base for src in chunk.srcs if sent[src].morphs[sent[src].head].isIndipendent()]
 					if len(srcs)==0:
-						continue
+						srcs.append("None")
 					tfile.write(np + "\t" + dst + "\t" + "\t".join(srcs)+"\n")
 		tfile.close()
