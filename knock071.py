@@ -32,7 +32,7 @@ if __name__ == '__main__':
             temp = line
             result_search = re_sentence.search(temp)
             while(result_search is not None):
-                for taggered in tagger.parse(temp[0:result_search.start()+len(result_search.group()[:-2])]):
+                for taggered in tagger.parse(temp[0:result_search.start()+1]):
                     f.write("\t".join(taggered)+"\n")
                 f.write("\n")
                 temp = temp[result_search.start()+len(result_search.group()[:-1]):]
