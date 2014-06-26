@@ -2,7 +2,6 @@
 #coding:utf-8
 import sys
 import os
-import marshal
 
 
 # GENIA taggerの出力
@@ -19,6 +18,7 @@ def get_files(dirpath):
     return flist
 
 
+# taggingされたファイル群のディレクトリ
 def get_docs_list(dirpath):
     docs = []
     for file_name in get_files(input_dir):
