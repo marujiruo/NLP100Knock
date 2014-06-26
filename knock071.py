@@ -39,5 +39,4 @@ if __name__ == '__main__':
                 result_search = re_sentence.search(temp)
             for taggered in tagger.parse(temp.strip()):
                 f.write("\t".join(taggered)+"\n")
-            f.write("\n")
         f.close()
