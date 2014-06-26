@@ -18,15 +18,12 @@ def get_files(dirpath):
                 flist.append(path)
     return flist
 
-if __name__ == '__main__':
-    input_dir = sys.argv[1]
-    output = sys.argv[2]
-    docs = []
 
+def get_docs_list(dirpath):
+    docs = []
     for file_name in get_files(input_dir):
         sent = []
         text = []
-        prev_tok = None
         for line in open(file_name):
             print line,
             if line == "\n":
@@ -38,5 +35,4 @@ if __name__ == '__main__':
                    "pos": line_split[2], "chunk": line_split[3]}
             sent.append(tok)
         docs.append(text)
-
-    marshal.dump(docs, open(output, "w"))
+    return docs
