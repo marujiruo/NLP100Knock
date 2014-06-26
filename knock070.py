@@ -65,5 +65,6 @@ if __name__ == '__main__':
         class_list.remove(neighbor_class[0])
         class_list.remove(neighbor_class[1])
 
+    # 出力
     for one_class, i in zip(class_list, range(len(class_list))):
         print "class :", i+1, ",".join(one_class)
