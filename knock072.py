@@ -25,7 +25,6 @@ def get_docs_list(dirpath):
         sent = []
         text = []
         for line in open(file_name):
-            print line,
             if line == "\n":
                 text.append(sent)
                 sent = []
