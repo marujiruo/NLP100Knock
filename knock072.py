@@ -21,7 +21,7 @@ def get_files(dirpath):
 # taggingされたファイル群のディレクトリ
 def get_docs_list(dirpath):
     docs = []
-    for file_name in get_files(input_dir):
+    for file_name in get_files(dirpath):
         sent = []
         text = []
         for line in open(file_name):
