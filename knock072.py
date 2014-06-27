@@ -24,6 +24,7 @@ def get_docs_list(dirpath):
     for file_name in get_files(dirpath):
         sent = []
         text = []
+        prev_tok = None
         for line in open(file_name):
             if line == "\n":
                 text.append(sent)
@@ -31,7 +32,11 @@ def get_docs_list(dirpath):
                 continue
             line_split = line.strip().split()
             tok = {"w": line_split[0], "lem": line_split[1],
-                   "pos": line_split[2], "chunk": line_split[3]}
+                   "pos": line_split[2], "chunk": line_split[3],
+                   "prev": prev_tok, "next": None}
+            if prev_tok is not None:
+                prev_tok["next"] = tok
+            prev_tok = tok
             sent.append(tok)
         docs.append(text)
     return docs
