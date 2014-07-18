@@ -1,0 +1,1 @@
+cat data0.f | classias-tag -m model -r > result078

@@ -1,0 +1,1 @@
+classias-train -t m -m model data0.f data1.f data2.f data3.f data4.f

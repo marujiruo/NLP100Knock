@@ -1,0 +1,10 @@
+> db.tweets.ensureIndex({ url: 1 })
+{ "ok" : 1 }
+> db.tweets.ensureIndex({ date: 1 })
+{ "ok" : 1 }
+> db.tweets.ensureIndex({ user: 1 })
+{ "ok" : 1 }
+> db.tweets.ensureIndex({ rt_url: 1 })
+{ "ok" : 1 }
+> db.tweets.ensureIndex({ reply_url: 1 })
+{ "ok" : 1 }

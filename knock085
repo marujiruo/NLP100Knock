@@ -1,0 +1,2 @@
+> db.tweets.find({$query:{user:"170626372"}, $orderby:{freq_rted:1}}).limit(10)
+{ "_id" : ObjectId("53c48ef903a7ee5a6e1a8aa7"), "body" : "ウイトリ作画怪しい( ˘ω˘ )", "url" : "http://twitter.com/tttsg9p/status/485830086923280384", "freq_rted" : 0, "reply_url" : null, "rt_url" : null, "user" : "170626372", "date" : "Sun Jul 06 16:58:13 +0000 2014", "nickname" : "てん" }
